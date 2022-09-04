@@ -29,6 +29,5 @@ database
 *.prof
 .idea
 .vscode
-/conf/app.conf
 /vendor
 /runtime

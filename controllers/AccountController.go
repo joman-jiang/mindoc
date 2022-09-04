@@ -99,6 +99,8 @@ func (c *AccountController) Prepare() {
 
 // Login 用户登录
 func (c *AccountController) Login() {
+	c.Redirect("/login_oauth2?url="+c.referer(), 302)
+	return
 	c.TplName = "account/login.tpl"
 
 	if member, ok := c.GetSession(conf.LoginSessionName).(models.Member); ok && member.MemberId > 0 {

@@ -303,9 +303,9 @@ func (m *Member) httpLogin(account, password string) (*Member, error) {
 func (m *Member) Add() error {
 	o := orm.NewOrm()
 
-	if ok, err := regexp.MatchString(conf.RegexpAccount, m.Account); m.Account == "" || !ok || err != nil {
-		return errors.New("账号只能由英文字母数字组成，且在3-50个字符")
-	}
+	//if ok, err := regexp.MatchString(conf.RegexpAccount, m.Account); m.Account == "" || !ok || err != nil {
+	//	return errors.New("账号只能由英文字母数字组成，且在3-50个字符")
+	//}
 	if m.Email == "" {
 		return errors.New("邮箱不能为空")
 	}
@@ -370,12 +370,13 @@ func (m *Member) Find(id int, cols ...string) (*Member, error) {
 }
 
 func (m *Member) ResolveRoleName() {
+	lang, _ := web.AppConfig.String("default_lang")
 	if m.Role == conf.MemberSuperRole {
-		m.RoleName = i18n.Tr(m.Lang, "uc.super_admin")
+		m.RoleName = i18n.Tr(lang, "uc.super_admin")
 	} else if m.Role == conf.MemberAdminRole {
-		m.RoleName = i18n.Tr(m.Lang, "uc.admin")
+		m.RoleName = i18n.Tr(lang, "uc.admin")
 	} else if m.Role == conf.MemberGeneralRole {
-		m.RoleName = i18n.Tr(m.Lang, "uc.user")
+		m.RoleName = i18n.Tr(lang, "uc.user")
 	}
 }
 

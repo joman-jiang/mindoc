@@ -121,6 +121,8 @@ func init() {
 	})
 
 	web.Router("/", &controllers.HomeController{}, "*:Index")
+	web.Router("/login_oauth2", &controllers.OauthController{}, "*:Login")
+	web.Router("/login_back", &controllers.OauthCallBackController{}, "*:LoginBack")
 
 	web.Router("/login", &controllers.AccountController{}, "*:Login")
 	web.Router("/dingtalk_login", &controllers.AccountController{}, "*:DingTalkLogin")
