@@ -3,7 +3,7 @@ module github.com/mindoc-org/mindoc
 go 1.18
 
 require (
-	github.com/PuerkitoBio/goquery v1.8.0
+	github.com/PuerkitoBio/goquery v1.5.1
 	github.com/beego/beego/v2 v2.0.5
 	github.com/beego/i18n v0.0.0-20161101132742-e9308947f407
 	github.com/boombuler/barcode v1.0.1
